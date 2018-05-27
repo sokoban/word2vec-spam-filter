@@ -1,5 +1,8 @@
 # word2vec-spam-filter
 
+Dev Branch Word2Vec Spam Filter
+
+
 This is a project done during the [Kik](https://github.com/kikinteractive/) hackathon 2017.
 
 In this project we demonstrate a way to classify spam messages on the client while protecting user privacy.
