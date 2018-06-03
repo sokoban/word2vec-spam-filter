@@ -36,7 +36,7 @@ export class SenderPage extends React.Component<{}, {}> {
 			body: {
 				message: this.textarea.value
 			}
-		}).then(res => console.log("message sent"));
+		}).then(res => console.log(this.textarea.value));
 	}
 
 	private onClickExample(event: React.MouseEvent<HTMLUListElement>) {

@@ -13,7 +13,7 @@
     "build-styles-watch": "npm run build-styles -- --watch",
     "build": "npm-run-all clean build-scripts build-styles",
     "build-watch": "run-p build-scripts-watch build-styles-watch",
-    "serve": "webpack-dev-server --no-info --colors --port 3333",
+    "serve": "webpack-dev-server --no-info --colors --port 3334",
     "dev": "npm-run-all build -p build-watch serve"
   },
   "repository": {
