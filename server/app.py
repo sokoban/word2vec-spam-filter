@@ -29,10 +29,10 @@ DEFAULT_WEIGHT = 15
 
 def init():
     """read glove file and generate a word matrix"""
-    global W_norm, WORD_LIST, vocab, ivocab, iweights 
+    global W_norm, WORD_LIST, vocab, ivocab, iweights
     sys.stderr.write('initializing word vectors')
     word_vectors = []
-    
+
     # open and parse word vector file
     with open(GLOVE, 'r') as f:
         for i, line in enumerate(f):
@@ -42,7 +42,7 @@ def init():
             word_vectors.append((word, vector))
             if i % 10000 == 0:
                 sys.stderr.write('.')
-    
+
     WORD_LIST += '\n'.join(w for w, _ in word_vectors)
     W, vocab, ivocab = generate_matrix(word_vectors)
     W_norm = normalize_matrix(W)
@@ -73,7 +73,7 @@ def freq_to_weight(freq, max_freq):
     # taken from https://www.wikiwand.com/en/Word_lists_by_frequency
     return 0.5 - log(float(freq)/max_freq, 2)
 
-    
+
 def generate_spam_matrix(report_threashold):
     """
     put all known spam vectors in a matrix
@@ -114,13 +114,15 @@ def tokenize_message(message):
             .replace("'s", " 's")
             .split())
 
-
+# Message to Vector Function
+# Have to modify this fuction
 def message_to_vector(message):
     """sums up all known vectors of a given message."""
     vector = np.zeros(W_norm[0, :].shape)
     for term in tokenize_message(message):
         if term in vocab:
             vector += get_vector(vocab[term])
+            sys.stderr.write(vector)
     return vector
 
 
